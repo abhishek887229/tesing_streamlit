@@ -76,11 +76,6 @@ if search_button:
     else:
         st.warning("Please enter a roll number to search.", icon="⚠️")
 
-# Display the top 5 students based on rank (you can adjust the number as needed)
-st.markdown("<h4 style='color: #4CAF50;'>Top 5 Students by Rank:</h4>", unsafe_allow_html=True)
-top_5_students = df_sorted.head(5)
-st.write(top_5_students[['name', 'rank ', 'total']])
-
 # Add some extra spacing at the bottom
 st.markdown("<br><br>", unsafe_allow_html=True)
 
