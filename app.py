@@ -46,7 +46,7 @@ def balloon_animation():
 if search_button:
     if roll_number:
         # Use the correct column name based on your CSV structure
-        student_data = df[df['roll'] == int(roll_number)]  # 'c' is the roll number column
+        student_data = df[df['roll '] == int(roll_number)]  # 'c' is the roll number column
 
         # Balloon effect upon button click
         balloon_animation()
