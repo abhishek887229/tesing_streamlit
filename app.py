@@ -28,7 +28,7 @@ if st.button("Search"):
     if roll_number:
         # Filter the data for the entered roll number
         student_data = df[df['roll'] == int(roll_number)]
-
+        st.write(df.head())
         # If a student is found, display the details
         if not student_data.empty:
             st.write(f"### Student Information for Roll Number {roll_number}")
