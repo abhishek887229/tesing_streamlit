@@ -50,7 +50,7 @@ def balloon_animation():
 if search_button:
     if roll_number:
         # Use the correct column name based on your CSV structure
-        student_data = df[df['c'] == int(roll_number)]  # 'c' is the roll number column
+        student_data = df[df['roll'] == int(roll_number)]  # 'c' is the roll number column
 
         # Balloon effect upon button click
         balloon_animation()
@@ -79,7 +79,7 @@ if search_button:
 # Display the top 5 students based on rank (you can adjust the number as needed)
 st.markdown("<h4 style='color: #4CAF50;'>Top 5 Students by Rank:</h4>", unsafe_allow_html=True)
 top_5_students = df_sorted.head(5)
-st.write(top_5_students[['name', 'rank', 'total']])
+st.write(top_5_students[['name', 'rank ', 'total']])
 
 # Add some extra spacing at the bottom
 st.markdown("<br><br>", unsafe_allow_html=True)
