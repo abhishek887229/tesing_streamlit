@@ -62,9 +62,9 @@ if search_button:
             st.markdown(f"**English Marks**: {student_data['english'].values[0]}", unsafe_allow_html=True)
             st.markdown(f"**Hindi Marks**: {student_data['hindi'].values[0]}", unsafe_allow_html=True)
             st.markdown(f"**Punjabi Marks**: {student_data['punjabi'].values[0]}", unsafe_allow_html=True)
-            st.markdown(f"**Math Marks**: {student_data['math'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**Math Marks**: {student_data['math '].values[0]}", unsafe_allow_html=True)
             st.markdown(f"**Total Marks**: {student_data['total'].values[0]}", unsafe_allow_html=True)
-            st.markdown(f"**Rank**: {student_data['rank'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**Rank**: {student_data['rank '].values[0]}", unsafe_allow_html=True)
 
             # Add some space
             st.markdown("<br><br>", unsafe_allow_html=True)
