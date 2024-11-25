@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Path to your CSV file (update with actual path or URL)
-file_path = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTAZfXiEdMZJXKglli57YzfLBIressqGtBfPsu2b2e0QdUxtPBimCoYn86zBnCMVElGsiS-DyXv2JZ/pub?gid=0&single=true&output=csv"  # Update this with your CSV file path or URL"  # Update this with your file path or URL
+file_path = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTAZfXiEdMZJXKglli57YzfLBIressqGtBfPsu2b2e0QdUxtPBimCoYn86zBnCMVElGsiS-DyXv2JZ/pub?gid=0&single=true&output=csv"
 
 # Load student data
 @st.cache_data
