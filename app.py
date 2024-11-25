@@ -27,7 +27,7 @@ roll_number = st.text_input("Enter Roll Number")
 if st.button("Search"):
     if roll_number:
         # Filter the data for the entered roll number
-        student_data = df[df['Roll Number'] == int(roll_number)]
+        student_data = df[df['roll'] == int(roll_number)]
 
         # If a student is found, display the details
         if not student_data.empty:
