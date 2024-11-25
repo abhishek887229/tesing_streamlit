@@ -37,7 +37,7 @@ if st.button("Search"):
             st.write(f"**English Marks**: {student_data['english'].values[0]}")
             st.write(f"**Hindi Marks**: {student_data['hindi'].values[0]}")
             st.write(f"**Punjabi Marks**: {student_data['punjabi'].values[0]}")
-            st.write(f"**Math Marks**: {student_data['math'].values[0]}")
+            st.write(f"**Math Marks**: {student_data['math '].values[0]}")
             st.write(f"**Total Marks**: {student_data['total'].values[0]}")
             st.write(f"**Rank**: {student_data['rank'].values[0]}")
         else:
