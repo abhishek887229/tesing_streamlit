@@ -13,34 +13,83 @@ def load_data(file_path):
 # Load the data into a DataFrame
 df = load_data(file_path)
 
-# Display the column names for debugging purposes
-st.write("Columns in the CSV file:", df.columns)
-
 # Set the title and a catchy tagline
 st.title("Unacademy Ludhiana Dugri")
-st.write("### Unlock Your Potential with Every Lesson! 🎓")
-st.write("Enter your roll number to fetch student details:")
+st.markdown("<h3 style='text-align: center; color: #4CAF50;'>Unlock Your Potential with Every Lesson! 🎓</h3>", unsafe_allow_html=True)
+
+# Sort the data by rank (or you can change it to sort by 'total' if needed)
+df_sorted = df.sort_values(by="rank", ascending=True)  # Sort by rank in ascending order
+
+# Add some space
+st.markdown("<br>", unsafe_allow_html=True)
 
 # Input field for the roll number
-roll_number = st.text_input("Enter Roll Number")
+st.markdown("<h4 style='color: #ff6347;'>Enter your roll number to fetch student details:</h4>", unsafe_allow_html=True)
+roll_number = st.text_input("Enter Roll Number", "")
 
-# Search button to retrieve student data
-if st.button("Search"):
+# Add a stylish button with balloon emoji
+search_button = st.button("Search 🎯", help="Click to fetch student details")
+
+# Define a function to display a balloon animation
+def balloon_animation():
+    st.markdown("""
+    <style>
+    @keyframes balloon {
+        0% {transform: scale(1);}
+        50% {transform: scale(1.2);}
+        100% {transform: scale(1);}
+    }
+    .balloon {
+        animation: balloon 1s ease-in-out;
+    }
+    </style>
+    <div class="balloon" style="font-size: 50px; color: #ff6347; text-align: center;">🎈</div>
+    """, unsafe_allow_html=True)
+
+# Check if the button is pressed and roll number is provided
+if search_button:
     if roll_number:
         # Use the correct column name based on your CSV structure
-        student_data = df[df['roll'] == int(roll_number)]  # 'c' is the roll number column
+        student_data = df[df['c'] == int(roll_number)]  # 'c' is the roll number column
+
+        # Balloon effect upon button click
+        balloon_animation()
 
         # If a student is found, display the details
         if not student_data.empty:
-            st.write(f"### Student Information for Roll Number {roll_number}")
-            st.write(f"**Name**: {student_data['name'].values[0]}")
-            st.write(f"**English Marks**: {student_data['english'].values[0]}")
-            st.write(f"**Hindi Marks**: {student_data['hindi'].values[0]}")
-            st.write(f"**Punjabi Marks**: {student_data['punjabi'].values[0]}")
-            st.write(f"**Math Marks**: {student_data['math '].values[0]}")
-            st.write(f"**Total Marks**: {student_data['total'].values[0]}")
-            st.write(f"**Rank**: {student_data['rank '].values[0]}")
+            st.markdown(f"### Student Information for Roll Number {roll_number}", unsafe_allow_html=True)
+            st.markdown(f"**Name**: {student_data['name'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**English Marks**: {student_data['english'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**Hindi Marks**: {student_data['hindi'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**Punjabi Marks**: {student_data['punjabi'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**Math Marks**: {student_data['math'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**Total Marks**: {student_data['total'].values[0]}", unsafe_allow_html=True)
+            st.markdown(f"**Rank**: {student_data['rank'].values[0]}", unsafe_allow_html=True)
+
+            # Add some space
+            st.markdown("<br><br>", unsafe_allow_html=True)
+
+            # Display a success message with a background color
+            st.success("Student information successfully retrieved! 🎉", icon="✅")
         else:
-            st.error("No student found with this roll number.")
+            st.error("No student found with this roll number. Please check the roll number and try again.", icon="❌")
     else:
-        st.warning("Please enter a roll number.")
+        st.warning("Please enter a roll number to search.", icon="⚠️")
+
+# Display the top 5 students based on rank (you can adjust the number as needed)
+st.markdown("<h4 style='color: #4CAF50;'>Top 5 Students by Rank:</h4>", unsafe_allow_html=True)
+top_5_students = df_sorted.head(5)
+st.write(top_5_students[['name', 'rank', 'total']])
+
+# Add some extra spacing at the bottom
+st.markdown("<br><br>", unsafe_allow_html=True)
+
+# Footer - You can customize the footer with links or information about your project
+st.markdown(
+    """
+    <div style='text-align: center; font-size: 14px; color: gray;'>
+        <p>Made with ❤️ by Unacademy Ludhiana Dugri</p>
+        <p>For more information, visit our website or contact us.</p>
+    </div>
+    """, unsafe_allow_html=True
+)
