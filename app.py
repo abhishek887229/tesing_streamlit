@@ -16,10 +16,6 @@ df = load_data(file_path)
 # Set the title and a catchy tagline
 st.title("Unacademy Ludhiana Dugri")
 st.markdown("<h3 style='text-align: center; color: #4CAF50;'>Unlock Your Potential with Every Lesson! 🎓</h3>", unsafe_allow_html=True)
-
-# Sort the data by rank (or you can change it to sort by 'total' if needed)
-df_sorted = df.sort_values(by="rank ", ascending=True)  # Sort by rank in ascending order
-
 # Add some space
 st.markdown("<br>", unsafe_allow_html=True)
 
